@@ -9,8 +9,14 @@ public class CloseApplication : MonoBehaviour
     {
         if (Input.GetKey("escape"))
         {
-            EditorApplication.isPlaying = false;
-            Application.Quit();
+            if (EditorApplication.isPlaying)
+            {
+                EditorApplication.isPlaying = false;
+            }
+            else
+            {
+                Application.Quit();
+            }
         }
     }
 }
