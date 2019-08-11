@@ -14,3 +14,5 @@ Our game focuses on 3 characters as they struggle with a larger organization to 
 # How to setup the Unity Project
 
 (insert instructions here)
+
+# More Info
