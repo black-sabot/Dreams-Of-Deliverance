@@ -16,3 +16,6 @@ Our game focuses on 3 characters as they struggle with a larger organization to 
 (insert instructions here)
 
 # More Info
+
+# Automatic Builds
+Current builds automaticlly compiled and stored here: https://mega.nz/#F!s2AGWaLD!QEXSPWOHDVMeqWKTfE3M7Q
