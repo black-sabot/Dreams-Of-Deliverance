@@ -13,15 +13,15 @@ TagManager:
   - UI
   - 
   - 
+  - ground
+  - wall_invisible
+  - wall_visible
+  - scenery
+  - lighting
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - player
+  - enemy
+  - boss
   - 
   - 
   - 

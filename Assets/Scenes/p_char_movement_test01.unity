@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 23075895}
-  m_Layer: 16
+  m_Layer: 14
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 35984701}
   - component: {fileID: 35984702}
   - component: {fileID: 35984703}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 89412642}
   - component: {fileID: 89412641}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MainSceneLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 407169475}
   - component: {fileID: 407169474}
   - component: {fileID: 407169473}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 603871372}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 1340496167}
   - component: {fileID: 1340496166}
   - component: {fileID: 1340496169}
-  m_Layer: 16
+  m_Layer: 14
   m_Name: SpriteCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 1782993042}
   - component: {fileID: 1782993041}
   - component: {fileID: 1782993040}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: 1922055665}
   - component: {fileID: 1922055667}
   - component: {fileID: 1922055666}
-  m_Layer: 16
+  m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -879,7 +879,7 @@ GameObject:
   - component: {fileID: 2080153718}
   - component: {fileID: 2080153719}
   - component: {fileID: 2080153720}
-  m_Layer: 16
+  m_Layer: 14
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 2122104126}
   - component: {fileID: 2122104129}
   - component: {fileID: 2122104128}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
