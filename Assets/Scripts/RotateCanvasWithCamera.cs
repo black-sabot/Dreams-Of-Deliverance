@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class RotateCanvasWithCamera : MonoBehaviour
 {
-    private Camera camera;
+    private Camera cam;
     private RectTransform rectTransform;
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
+        cam = Camera.main;
         rectTransform = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        rectTransform.rotation = camera.transform.rotation;
+        rectTransform.rotation = cam.transform.rotation;
     }
 }

@@ -9,7 +9,7 @@ public class p_PlayerController : MonoBehaviour
     public float movementSpeed = 7f;
 
     // Component tracking
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
     private Animator animator;
 
     // Movement tracking
@@ -21,7 +21,7 @@ public class p_PlayerController : MonoBehaviour
         // Get components needed at the start, no messy drag and drop
         // Minimal impact on startup
         animator = GetComponentInChildren<Animator>();
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
 
         // Set to 0 which is the default 'down' state for idle animation
         // so character always starts looking at camera
@@ -49,7 +49,8 @@ public class p_PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Simple movement -- normalized for diagonal speed
-        rigidbody.MovePosition(rigidbody.position + movement.normalized * movementSpeed * Time.fixedDeltaTime);
+        // TODO: deadzone + analog smooth control between 0.01 and 0.001
+        rb.MovePosition(rb.position + movement.normalized * movementSpeed * Time.fixedDeltaTime);
     }
 
     void GetLastDirectionInput(Vector3 movementInput)
