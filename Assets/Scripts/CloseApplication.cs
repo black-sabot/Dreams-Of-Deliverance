@@ -7,17 +7,19 @@ using UnityEditor;
 
 public class CloseApplication : MonoBehaviour
 {
+    public bool EscapeStopsEditor = true;
+
     void Update()
     {
         if (Input.GetKey("escape"))
         {
-            #if UNITY_EDITOR
-            if (EditorApplication.isPlaying)
+#if UNITY_EDITOR
+            if (EditorApplication.isPlaying && EscapeStopsEditor)
             {
                 EditorApplication.isPlaying = false;
             }
-            #endif
-            
+#endif
+
             Application.Quit();
         }
     }
