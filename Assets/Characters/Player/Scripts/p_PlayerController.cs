@@ -31,7 +31,7 @@ public class p_PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Simple movement
-        rigidbody.MovePosition(rigidbody.position + movement * movementSpeed * Time.fixedDeltaTime);
+        // Simple movement -- normalized for diagonal speed
+        rigidbody.MovePosition(rigidbody.position + movement.normalized * movementSpeed * Time.fixedDeltaTime);
     }
 }
