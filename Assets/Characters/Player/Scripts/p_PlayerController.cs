@@ -5,23 +5,26 @@ using UnityEngine;
 public class p_PlayerController : MonoBehaviour
 {
     // Player movement speed
-    // TODO: add sprint?
-    public float movementSpeed = 7f;
+    public float movementSpeed = 18f;
+    public float jumpForce = 60f;
 
     // Component tracking
-    private Rigidbody rigidbody;
+    //private Rigidbody rb;
+    private CharacterController charController;
     private Animator animator;
 
     // Movement tracking
     private Vector3 lastIdle;
     private Vector3 movement;
+    public bool isJumping = false;
 
     void Start()
     {
         // Get components needed at the start, no messy drag and drop
         // Minimal impact on startup
         animator = GetComponentInChildren<Animator>();
-        rigidbody = GetComponent<Rigidbody>();
+        charController = GetComponent<CharacterController>();
+        //rb = GetComponent<Rigidbody>();
 
         // Set to 0 which is the default 'down' state for idle animation
         // so character always starts looking at camera
@@ -30,12 +33,16 @@ public class p_PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Capture input
-        // TODO: Build a better system for this so update doesn't get interrupted
+        // Capture all the input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.z = Input.GetAxisRaw("Vertical");
 
-        // Go store the last movement direction, normalized, for animation
+        if (Input.GetButtonDown("Jump"))
+        {
+            isJumping = true;
+        }
+
+        // Go store the last movement direction, for animation
         GetLastDirectionInput(movement);
 
         // Set animator values
@@ -43,13 +50,33 @@ public class p_PlayerController : MonoBehaviour
         animator.SetFloat("vertical", movement.z);
         animator.SetFloat("lastX", lastIdle.x);
         animator.SetFloat("lastZ", lastIdle.z);
-        animator.SetBool("moving", movement.sqrMagnitude != 0 ? true : false);
+
+        if (charController.isGrounded)
+        {
+            // Check only the xz movement
+            float xzMovement = new Vector3(movement.x, 0, movement.z).sqrMagnitude;
+            animator.SetBool("moving", xzMovement != 0 ? true : false);
+        }
+        else
+        {
+            // Stop movement if in the air
+            animator.SetBool("moving", false);
+        }
     }
 
     void FixedUpdate()
     {
-        // Simple movement -- normalized for diagonal speed
-        rigidbody.MovePosition(rigidbody.position + movement.normalized * movementSpeed * Time.fixedDeltaTime);
+        // Apply XZ movement because we're grounded
+        movement = new Vector3(movement.x, 0, movement.z).normalized * movementSpeed;
+
+        // Gravity
+        movement.y += isJumping ? -jumpForce : Physics.gravity.y;
+
+        // Do the move
+        charController.Move(movement * Time.fixedDeltaTime);
+
+        // Reset jump
+        isJumping = false;
     }
 
     void GetLastDirectionInput(Vector3 movementInput)
@@ -89,5 +116,10 @@ public class p_PlayerController : MonoBehaviour
         {
             lastIdle.x = 0;
         }
+    }
+
+    public void Death()
+    {
+        // Do a dead here
     }
 }
